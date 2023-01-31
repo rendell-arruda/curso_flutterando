@@ -25,6 +25,15 @@ class _LoginPageState extends State<LoginPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  Container(
+                    width: 100,
+                    height: 100,
+                    child: Image.network(
+                        'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Logo_TV_2015.png/250px-Logo_TV_2015.png'),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
                   TextField(
                     onChanged: (text) {
                       email = text;
