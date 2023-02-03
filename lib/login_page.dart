@@ -33,46 +33,66 @@ class _LoginPageState extends State<LoginPage> {
                     SizedBox(
                       height: 20,
                     ),
-                    TextField(
-                      onChanged: (text) {
-                        email = text;
-                      },
-                      keyboardType: TextInputType.emailAddress,
-                      decoration: InputDecoration(
-                        labelText: 'Email',
-                        border: OutlineInputBorder(),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    TextField(
-                      onChanged: (text) {
-                        password = text;
-                      },
-                      obscureText: true,
-                      decoration: InputDecoration(
-                        labelText: 'Password',
-                        border: OutlineInputBorder(),
-                      ),
-                    ),
                     SizedBox(
                       height: 15,
                     ),
-                    TextButton(
-                      onPressed: () {
-                        if (email == 'rendellarruda3@gmail.com' &&
-                            password == '123') {
-                          Navigator.of(context).pushReplacementNamed('/home');
-                        } else {
-                          print('login inválido');
-                        }
-                      },
-                      child: Text(
-                        'Entrar',
-                        style: TextStyle(fontSize: 20),
+                    Card(
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            left: 12, right: 12, top: 20, bottom: 12),
+                        child: Column(children: [
+                          TextField(
+                            onChanged: (text) {
+                              email = text;
+                            },
+                            keyboardType: TextInputType.emailAddress,
+                            decoration: InputDecoration(
+                              labelText: 'Email',
+                              border: OutlineInputBorder(),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          TextField(
+                            onChanged: (text) {
+                              password = text;
+                            },
+                            obscureText: true,
+                            decoration: InputDecoration(
+                              labelText: 'Password',
+                              border: OutlineInputBorder(),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 15,
+                          ),
+                          ElevatedButton(
+                            style: ButtonStyle(
+                              backgroundColor:
+                                  MaterialStatePropertyAll<Color>(Colors.cyan),
+                            ),
+                            onPressed: () {
+                              if (email == 'rendellarruda3@gmail.com' &&
+                                  password == '123') {
+                                Navigator.of(context)
+                                    .pushReplacementNamed('/home');
+                              } else {
+                                print('login inválido');
+                              }
+                            },
+                            child: Container(
+                              width: double.infinity,
+                              child: Text(
+                                'Entrar',
+                                style: TextStyle(fontSize: 20),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          )
+                        ]),
                       ),
-                    )
+                    ),
                   ]),
             ),
           ),
@@ -93,7 +113,7 @@ class _LoginPageState extends State<LoginPage> {
               fit: BoxFit.cover,
             )),
         Container(
-          color: Colors.white.withOpacity(0.10),
+          color: Colors.white.withOpacity(0.2),
         ),
         _body(),
       ],
