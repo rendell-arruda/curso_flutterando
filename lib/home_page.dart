@@ -55,7 +55,7 @@ class _HomePageState extends State<HomePage> {
               Container(
                 height: 10,
               ),
-              const CustomSwitch(),
+              CustomSwitch(),
               Container(
                 height: 10,
               ),
