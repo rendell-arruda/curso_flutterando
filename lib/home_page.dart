@@ -14,11 +14,39 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        drawer: Drawer(
+          child: Column(children: [
+            UserAccountsDrawerHeader(
+                currentAccountPicture: ClipRRect(
+                  borderRadius: BorderRadius.circular(50),
+                  child: Image.network(
+                      'https://avatars.githubusercontent.com/u/89528131?v=4'),
+                ),
+                accountName: const Text('Rendell Arruda'),
+                accountEmail: const Text('rendellarruda3@gmail.com')),
+            ListTile(
+              leading: const Icon(Icons.home),
+              title: const Text('Inicio'),
+              subtitle: const Text('Tela de inicio'),
+              onTap: () {
+                // print('Home');
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.logout),
+              title: const Text('Logout'),
+              subtitle: const Text('Finalizar Sessão'),
+              onTap: () {
+                Navigator.of(context).pushReplacementNamed('/');
+              },
+            )
+          ]),
+        ),
         appBar: AppBar(
           title: const Text('Home Page'),
-          actions: [CustomSwitch()],
+          actions: const [CustomSwitch()],
         ),
-        body: Container(
+        body: SizedBox(
           width: double.infinity,
           height: double.infinity,
           child: ListView(
@@ -27,7 +55,7 @@ class _HomePageState extends State<HomePage> {
               Container(
                 height: 10,
               ),
-              CustomSwitch(),
+              const CustomSwitch(),
               Container(
                 height: 10,
               ),
@@ -51,12 +79,31 @@ class _HomePageState extends State<HomePage> {
                     color: Colors.yellow,
                   )
                 ],
+              ),
+              // ignore: prefer_const_constructors
+              SizedBox(
+                height: 30,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(12),
+                child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        minimumSize: const Size(50, 50),
+                        elevation: 3,
+                        backgroundColor: Colors.redAccent,
+                        shape: const RoundedRectangleBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(40)))),
+                    onPressed: () {
+                      Navigator.of(context).pushReplacementNamed('/tinder');
+                    },
+                    child: const Text('Ir para Tinder Page')),
               )
             ],
           ),
         ),
         floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.add),
+          child: const Icon(Icons.add),
           onPressed: () {
             setState(() {
               counter++;
