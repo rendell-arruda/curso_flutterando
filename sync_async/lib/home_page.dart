@@ -7,8 +7,15 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('List Todo\'s'),
+        title: const Text('List Todo\'s'),
       ),
+      body: ListView.builder(
+          itemCount: 10,
+          itemBuilder: (context, index) {
+            return ListTile(
+              title: Text('item $index'),
+            );
+          }),
     );
   }
 }
